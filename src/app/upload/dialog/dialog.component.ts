@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { UploadService } from '../upload.service';
 import { forkJoin } from 'rxjs';
@@ -18,6 +18,7 @@ export class DialogComponent implements OnInit {
   uploadSuccessful = false;
 
   @ViewChild('file') file;
+  @ViewChild('TenFile') TenFile;
   public files: Set<File> = new Set();
   constructor(public dialogRef: MatDialogRef<DialogComponent>, public uploadService: UploadService) {}
   ngOnInit() {

@@ -14,12 +14,15 @@ export class UploadService {
 
   public upload(files: Set<File>): {[key:string]:Observable<number>} {
     // this will be the our resulting map
+    var Tenfile;
     const status = {};
 
     files.forEach(file => {
       // create a new multipart-form for every file
       const formData: FormData = new FormData();
-      formData.append('file', file, file.name);
+
+      Tenfile =  Date.now()+ file.name
+      formData.append('file', file, Tenfile);
 
       // create a http-post request and pass the form
       // tell it to report the upload progress
